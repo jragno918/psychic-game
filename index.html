@@ -27,22 +27,21 @@
       // Determines which key was pressed.
       var userGuess = event.key.toLoweCase;
 
-      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      // Computer's guess.
       var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-      // Determines whether you win or lose and how many guesses you have left
       if (userGuess === computerGuess) {
           win++;
-          guessesLeft--;
       } else if (userGuess != computerGuess) {
           losses++;
+      }
+      
+       if ((userGuess === computerGuess) || (userGuess != computerGuess)) {
           guessesLeft--;
       } else if (guessesLeft === 0) {
-          alert ("You ran out of guesses");
+          alert("You have run out of guesses");
       }
 
-
-        // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
         var html =
           "<h1>The Psychic Game</h1>" +
           "<p>Guess what letter I'm thinking of!</p>" +
